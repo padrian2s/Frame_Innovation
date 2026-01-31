@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="frame-creation">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frame Creation Process — Frame Innovation</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/simulators.css">
+</head>
+<body class="simulator-page">
+
+  <header class="simulator-header">
+    <a href="../index.html" class="back-link">&larr; Back to Study Guide</a>
+    <h1 class="sim-title">Frame Creation Process</h1>
+    <p class="sim-subtitle">Dorst's 9-step model for creating new frames in complex problem situations</p>
+  </header>
+
+  <div class="simulator-container">
+
+    <div class="simulator-description">
+      <h3>About This Simulator</h3>
+      <p>Frame creation is a structured approach to tackling open, complex problems that resist conventional solutions. Kees Dorst's 9-step model guides you from archaeological excavation of the problem through paradox identification, context mapping, and theme discovery toward the creation of entirely new frames that redefine the problem space. Work through each step sequentially, recording your insights along the way.</p>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel" id="controls-panel" style="margin-bottom: 24px;">
+      <div class="control-group">
+        <label class="control-label" for="problem-input">Problem Statement</label>
+        <textarea class="control-textarea" id="problem-input" placeholder="Describe the open, complex problem you want to address. What makes it resistant to conventional solutions?"></textarea>
+      </div>
+      <div class="sim-btn-group" style="margin-top: 12px;">
+        <button class="sim-btn sim-btn-primary" id="btn-start">Start Process</button>
+        <button class="sim-btn sim-btn-secondary" id="btn-reset">Reset</button>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-steps">0 / 9</div>
+        <div class="stat-label">Steps Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-phase">Not Started</div>
+        <div class="stat-label">Current Phase</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-frames">0</div>
+        <div class="stat-label">Frames Generated</div>
+      </div>
+    </div>
+
+    <!-- Pipeline Visualization -->
+    <div class="viz-panel" id="pipeline-panel" style="min-height: auto; padding: 24px 20px; margin-bottom: 24px;">
+      <h4 style="margin: 0 0 16px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Pipeline</h4>
+      <div class="pipeline" id="pipeline"></div>
+    </div>
+
+    <!-- Step Tracker -->
+    <div class="step-tracker" id="step-tracker" style="margin-bottom: 24px;"></div>
+
+    <!-- Step Content -->
+    <div class="viz-panel" id="step-content" style="margin-bottom: 24px; display: none;">
+      <div id="step-card"></div>
+    </div>
+
+    <!-- Log Panel -->
+    <h4 style="margin: 0 0 8px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Activity Log</h4>
+    <div class="log-panel" id="log-panel">
+      <div class="log-entry"><span class="timestamp">[--:--:--]</span> Simulator ready. Enter a problem statement to begin.</div>
+    </div>
+
+  </div>
+
+  <script src="../js/simulators/frame-creation.js"></script>
+</body>
+</html>

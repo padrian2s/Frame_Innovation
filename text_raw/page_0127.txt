@@ -1,0 +1,35 @@
+110
+
+CHAPTER 5
+
+problem-solving approach like frame creation has to take a step back and cautiously find a way to develop the problem situation before it can be fruitfully
+approached. Apart from these two extreme situations, a frame creation project
+can also arise from the inspiration that comes from the deep investigation of a
+theme. In this section, we will describe three projects to explore how the frame
+creation approach works in each of these cases. These case studies should be
+seen as exemplars of the different frame creation practices, from among the
+many that are possible.
+First, we will describe a case in which a societal need and a new technical
+possibility require the creation of new frames. In this situation the frame creation approach can be used, though in a slightly different way: opportunitybased projects start more or less “in midair,” as there is no set paradox or group
+of stakeholders. While this saves quite a bit of analysis work in the early stages
+of the frame creation process, the issues relating to the dynamics of the problem owner and the problem situation will then have to be assessed later in the
+frame creation process (in step 8, “transformation”).
+
+CASE 14
+Smart Work Hubs:
+On shaping infrastructure for the knowledge economy
+
+All around the world, the nature of work is changing through the influx of new
+digital technologies. The coming of the digital age challenges the conventional
+view of work as the creation of outcomes in a central “production facility” that
+employees travel to. In a society where “knowledge work” is becoming more
+important, the nature of what professionals do is changing fundamentally.
+Knowledge work involves inspiration and reflection (Leadbeater 2001). These
+tend to be highly connected activities that thrive in a rich and lively (networked) environment. While the coming of the broadband network in Australia
+has encouraged people in small-town and rural areas to engage in knowledge
+work, the nature of these activities requires people to come together in new
+networks, which require a novel support infrastructure. The idea of creating
+“Smart Work Hubs” at major transport interchanges around major Australian
+cities are being piloted as the key physical infrastructure to match the broadband infrastructure. The framing challenge centers on the fact that there is
+
+

@@ -1,0 +1,34 @@
+10
+
+CHAPTER 1
+
+assumptions that some factor or stakeholder can be excluded may come back to
+haunt you later on in the problem-solving process. Problem and context seem
+to merge.
+“COMPLEX”
+A complex problem is one that consists of many elements, with numerous connections between them. These connections may themselves be interdependent,
+creating a system where one small local decision can lead to lots of repercussions and chain effects in other seemingly unrelated areas. These interrelationships make it very hard to split up the overall problem situation into smaller
+chunks that could be dealt with more easily (as one does in conventional problem-solving): one can never be sure that in doing so you are not severing key
+relations. If key relations are accidentally severed, they will need to be reestablished later in the problem-solving process, when they will present themselves
+as flaws in the solution or, indeed, as fresh problems. Furthermore, the very
+number of elements and relationships also makes it well-nigh impossible to
+abstract from a complex problem (which would be the alternative strategy to
+cutting up the problem). The tangle of elements and connections means that
+these problems basically have to be approached as a whole, in all their complexity. But how can you do so? We will see that this is an area where expert
+designers have some interesting strategies.
+“DYNAMIC”
+A dynamic problem situation changes over time, with the addition of new
+elements and the shifting of connections (e.g., through the shifting of priorities). These can be slow changes, driven by ponderous processes like cultural
+change, or lightning-quick movements driven by technological development,
+for instance. Some of these dynamic changes we can predict by realizing that
+irresolvable issues tend to generate an oscillation, the type of dynamism that
+is a swinging movement—especially when the feedback mechanism is slow. For
+example, we often see this in the management of large organizations, which
+tend to be forever in flux between centralization and decentralization. Both
+of these modalities have their pros and cons, and management tends to keep
+compensating for these by “reorganizing.” The pendulum between centralized
+and decentralized management swings back and forth. One could plan for that.
+The wildly dynamic problem situations, of which we will encounter several in
+this book, are much more problematic. But as we will learn from expert designers, one can prepare for these challenges, too.
+
+

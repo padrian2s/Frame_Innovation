@@ -1,0 +1,37 @@
+184
+
+APPENDIX 2
+
+the system’s goals and its outer environment, with only minimal assumptions
+about the “inner environment” (Simon 1969, 53).
+In a later paper, Simon (1973) addressed some of the difficulties that might
+arise in applying the rational problem-solving approach to design by defining
+design problems as “ill-structured problems.” Ill-structured problems should
+be tackled in an “immediate problem space”—a part of the total problem space
+which is deemed too large, ill-structured, and ill-defined to be described. The
+immediate problem space is addressed and put together by an (unspecified)
+“noticing and evoking mechanism.” The goal of a design process is to arrive at a
+solution that is “good enough”: “we satisfice by looking for alternatives in such
+a way that we can generally find an acceptable one after only moderate search”
+(Simon 1973). In The Sciences of the Artificial (1969), Simon maintains that
+design problems are hierarchically organized, and the way to design a complex
+structure is to discover viable ways of decomposing it into subproblems, solving these, and combining them to arrive at a new overall solution. In problemsolving theory, a “good” (most efficient) reasoning process is defined as the one
+that involves the shortest search path through the problem space.
+A radically different paradigm was proposed fifteen years later by Donald
+Schön (1983), who describes design as an activity involving “reflective practice.”
+This pragmatist, constructionist theory is specifically made to address some of
+the shortcomings Schön perceived in the rational problem-solving approach
+to professional practice. Schön believes that the design component of the professions is underestimated, and that the nature of human design activities is
+misunderstood. Schön stresses the uniqueness of every problem situation, and
+identifies the core skill of designers as their ability to determine how every
+single problem should be approached. Schön calls this the essence, or “the artistry,” of design practice, and finds it unacceptable that it cannot be described
+in the rational problem-solving framework.
+To Schön, one of the basic problems for designers is to determine how to
+approach each single unique task through “a kind of knowing [that] is inherent in intelligent action” (Schön 1983, 50). Although he recognizes that this
+implicit “knowing-in-action” is difficult to describe and convey to students,
+he argues that what can be taught and considered is the explicit reflection
+that guides the development of one’s knowing-in-action habits. This he calls
+“reflection-in-action.” In a “reflective conversation with the situation,” designers work by naming the relevant factors in the situation, framing a problem,
+making moves toward a solution, and evaluating those moves. The frames are
+
+

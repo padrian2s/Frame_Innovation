@@ -1,0 +1,277 @@
+/* ============================================
+   Landing Page Styles
+   Frame Innovation Study Guide
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Hero Section --- */
+
+.hero {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0d9488 100%);
+  color: #fff;
+  text-align: center;
+  padding: 80px 24px;
+}
+
+.hero__title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+}
+
+.hero__subtitle {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin: 0 0 8px;
+  opacity: 0.92;
+}
+
+.hero__author {
+  font-size: 1.1rem;
+  margin: 0 0 4px;
+  opacity: 0.85;
+}
+
+.hero__meta {
+  font-size: 0.95rem;
+  margin: 0 0 36px;
+  opacity: 0.7;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: #fff;
+  color: #1e3a5f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn--secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Sections --- */
+
+.section {
+  padding: 64px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section__heading {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 8px;
+  color: #1e293b;
+}
+
+.section__description {
+  text-align: center;
+  color: #64748b;
+  margin: 0 0 40px;
+  font-size: 1.05rem;
+}
+
+.section__heading::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #1e3a5f, #0d9488);
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+/* --- Grid --- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* --- Chapter Cards --- */
+
+.chapter-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 24px 24px 24px 20px;
+  border-left: 4px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chapter-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.chapter-card__number {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 4px;
+  opacity: 0.6;
+}
+
+.chapter-card__title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #1e293b;
+}
+
+.chapter-card__desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.chapter-card__pages {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Chapter border colors */
+.chapter-card--1 { border-left-color: #3b82f6; }
+.chapter-card--2 { border-left-color: #f59e0b; }
+.chapter-card--3 { border-left-color: #10b981; }
+.chapter-card--4 { border-left-color: #8b5cf6; }
+.chapter-card--5 { border-left-color: #ef4444; }
+.chapter-card--6 { border-left-color: #06b6d4; }
+.chapter-card--7 { border-left-color: #f97316; }
+.chapter-card--8 { border-left-color: #ec4899; }
+
+/* --- Simulator Cards --- */
+
+.simulator-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 28px 24px;
+  border-top: 4px solid transparent;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.simulator-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.simulator-card__icon {
+  font-size: 2rem;
+  margin: 0 0 12px;
+  display: block;
+}
+
+.simulator-card__title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #1e293b;
+}
+
+.simulator-card__desc {
+  font-size: 0.92rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Simulator border colors */
+.simulator-card--blue    { border-top-color: #0d9488; }
+.simulator-card--amber   { border-top-color: #f59e0b; }
+.simulator-card--purple  { border-top-color: #8b5cf6; }
+.simulator-card--green   { border-top-color: #10b981; }
+.simulator-card--rose    { border-top-color: #f43f5e; }
+.simulator-card--indigo  { border-top-color: #6366f1; }
+
+/* --- Footer --- */
+
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 56px 20px;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 48px 16px;
+  }
+
+  .section__heading {
+    font-size: 1.6rem;
+  }
+}

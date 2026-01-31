@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="problem-reframing">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Reframing — Frame Innovation</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/simulators.css">
+</head>
+<body class="simulator-page">
+
+  <header class="simulator-header">
+    <a href="../index.html" class="back-link">&larr; Back to Study Guide</a>
+    <h1 class="sim-title">Problem Reframing</h1>
+    <p class="sim-subtitle">See how the same problem produces radically different solutions when viewed through different frames</p>
+  </header>
+
+  <div class="simulator-container" style="max-width: 1100px;">
+
+    <div class="simulator-description">
+      <h3>About This Simulator</h3>
+      <p>A frame is a standpoint from which a problem situation is viewed — a pattern of relationships that shapes what we see, what we ignore, and what solutions become possible. The same complex problem, seen through different frames, yields entirely different strategies. Explore four real-world scenarios drawn from Dorst's work and see how reframing transforms the solution space.</p>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel" style="margin-bottom: 24px;">
+      <div class="control-group">
+        <label class="control-label" for="scenario-select">Select a Scenario</label>
+        <select class="control-select" id="scenario-select">
+          <option value="">— Choose a scenario —</option>
+          <option value="nightlife">Nightlife District Violence (Kings Cross)</option>
+          <option value="mall">Declining Shopping Mall</option>
+          <option value="library">Library Losing Visitors</option>
+          <option value="traffic">Traffic Congestion</option>
+          <option value="custom">Custom Problem (enter your own)</option>
+        </select>
+      </div>
+      <div id="custom-input-area" style="display: none;">
+        <div class="control-group">
+          <label class="control-label" for="custom-problem">Your Problem Statement</label>
+          <textarea class="control-textarea" id="custom-problem" placeholder="Describe the problem you want to reframe..."></textarea>
+        </div>
+        <button class="sim-btn sim-btn-primary" id="btn-custom-go" style="margin-top: 8px;">Create Frames</button>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-scenarios">0</div>
+        <div class="stat-label">Scenarios Explored</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-compared">0</div>
+        <div class="stat-label">Frames Compared</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-active">None</div>
+        <div class="stat-label">Active Frame</div>
+      </div>
+    </div>
+
+    <!-- Scenario Content -->
+    <div id="scenario-content"></div>
+
+    <!-- Compare Panel -->
+    <div id="compare-panel" style="display: none;"></div>
+
+    <!-- Log Panel -->
+    <h4 style="margin: 0 0 8px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Activity Log</h4>
+    <div class="log-panel" id="log-panel">
+      <div class="log-entry"><span class="timestamp">[--:--:--]</span> Simulator ready. Select a scenario to begin.</div>
+    </div>
+
+  </div>
+
+  <script src="../js/simulators/problem-reframing.js"></script>
+</body>
+</html>

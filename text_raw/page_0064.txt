@@ -1,0 +1,38 @@
+LESSONS FROM DESIGN
+
+47
+
+their interactions in the sense that we can observe their movement across the
+night sky. But suppose we do not yet know the laws of gravity, the pattern of relationships that governs these movements. … Can we use our observations of the
+movement of these planets to formulate such a law? We can’t logically deduce
+such a law from observations. But we can observe the movement of the planets,
+and create meticulous descriptions. Those descriptions can inspire us to think
+deeply about the underlying patterns that could cause this behavior. The formulation of laws that explain this behavior is fundamentally a creative act, where
+the pattern of relationships is dreamt up and proposed.
+Induction is crucial in the progress of science: astronomers propose different
+working mechanisms (“hypotheses”) that could wholly or partially explain the
+observed phenomena, and test them by using the hypothesis to predict future
+outcomes, and check whether the hypothesis is true by matching it with observations. In the formulation of these predictions, we can again use the solid reasoning pattern of deduction: knowing the elements in a situation, and proposing a
+pattern of relationships between these elements, we can do our deductive calculations and predict where a planet will be in the future. Then we can wait until
+that moment arises, observe the planets again, and check whether the prediction
+was correct or not. If the planet is indeed where the hypothesis said it would
+be, we can cautiously say that the proposed pattern of relationships could be
+true. If the planets are not where the hypothesis projected them, the astronomer
+will have to come up with another possible theory of how these planets interact,
+and again use the power of deduction to test the new proposal. The progress
+of science comes from endless discussions between scientists who challenge
+and prove false each other’s hypotheses until there is agreement that a certain
+proposed pattern of relationships is probably “true,” because it matches current
+observations.
+Detectives work in much the same way, or at least they do in novels: there
+is a group of “elements” (the suspects), and there is the undeniable fact of the
+dead body (the outcome of an unknown process). To find out what happened, the
+detective needs to create scenarios about how the murder might have happened,
+and scrutinize them through deduction (would this scenario of interactions have
+led to the murder, and the position of the body in the exact circumstances in
+which it was found?). This is pure induction, a creative act—even though Sherlock Holmes adamantly denies this creativity, claiming that it is all “deduction,
+my dear Watson.” But by deduction alone, Sherlock Holmes would never have
+arrived at the scenario which exposes the murderer. Like detectives, scientists
+seem embarrassed being caught creatively guessing how something might work,
+
+

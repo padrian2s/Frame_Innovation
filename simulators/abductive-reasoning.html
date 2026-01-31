@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="abductive-reasoning">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abductive Reasoning — Frame Innovation</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/simulators.css">
+  <style>
+    .equation-layout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 32px 16px;
+    }
+
+    .equation-box {
+      position: relative;
+      width: 200px;
+      min-height: 140px;
+      background: #fff;
+      border: 2px solid var(--sim-primary-light);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    }
+
+    .equation-box:hover {
+      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
+    }
+
+    .equation-box.known {
+      border-color: var(--sim-primary);
+      box-shadow: 0 0 0 3px var(--sim-primary-light);
+    }
+
+    .equation-box.unknown {
+      border-color: #d1d5db;
+      background: #f9fafb;
+    }
+
+    .equation-box.unknown .eq-input {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .equation-box.unknown .eq-question {
+      display: flex;
+    }
+
+    .equation-box.editable {
+      border-color: var(--sim-primary);
+      border-style: dashed;
+    }
+
+    .eq-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sim-primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .eq-input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      text-align: center;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: #1f2937;
+      resize: none;
+      min-height: 48px;
+      transition: opacity 0.3s ease;
+    }
+
+    .eq-input:focus {
+      outline: none;
+    }
+
+    .eq-input::placeholder {
+      color: #9ca3af;
+    }
+
+    .eq-question {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--sim-primary);
+      animation: questionPulse 2s ease-in-out infinite;
+      position: absolute;
+      inset: 0;
+    }
+
+    @keyframes questionPulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    .equation-operator {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #6b7280;
+      flex-shrink: 0;
+    }
+
+    .connection-line {
+      position: absolute;
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        var(--sim-primary) 0,
+        var(--sim-primary) 6px,
+        transparent 6px,
+        transparent 12px
+      );
+      transition: background 0.5s ease;
+      pointer-events: none;
+    }
+
+    .connection-line.solid {
+      background: var(--sim-primary);
+    }
+
+    .mode-tabs {
+      display: flex;
+      gap: 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .mode-tab {
+      flex: 1;
+      padding: 14px 12px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #6b7280;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      user-select: none;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: inherit;
+    }
+
+    .mode-tab:hover {
+      color: #1f2937;
+      background: #f9fafb;
+    }
+
+    .mode-tab.active {
+      border-bottom-color: var(--sim-primary);
+      color: var(--sim-primary-dark);
+      font-weight: 700;
+    }
+
+    .mode-description {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .examples-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .examples-row label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+      white-space: nowrap;
+    }
+
+    .example-chip {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      color: #374151;
+    }
+
+    .example-chip:hover {
+      border-color: var(--sim-primary);
+      background: var(--sim-primary-light);
+    }
+
+    .example-chip.active {
+      border-color: var(--sim-primary);
+      background: var(--sim-primary);
+      color: #fff;
+    }
+
+    .alternative-btn {
+      margin-top: 12px;
+      display: none;
+    }
+
+    .alternative-btn.visible {
+      display: inline-flex;
+    }
+
+    @media (max-width: 768px) {
+      .equation-layout {
+        flex-direction: column;
+        gap: 8px;
+        padding: 20px 12px;
+      }
+
+      .equation-box {
+        width: 100%;
+        min-height: 100px;
+      }
+
+      .equation-operator {
+        font-size: 1.5rem;
+      }
+
+      .mode-tabs {
+        flex-direction: column;
+      }
+
+      .mode-tab {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+      }
+
+      .mode-tab.active {
+        border-left-color: var(--sim-primary);
+        border-bottom-color: transparent;
+      }
+    }
+  </style>
+</head>
+<body class="simulator-page">
+
+  <header class="simulator-header">
+    <a href="../index.html" class="back-link">&larr; Back to Study Guide</a>
+    <h1 class="sim-title">Abductive Reasoning</h1>
+    <p class="sim-subtitle">Dorst's equation: WHAT + HOW = VALUE and three modes of reasoning</p>
+  </header>
+
+  <div class="simulator-container">
+
+    <div class="simulator-description">
+      <h3>About This Simulator</h3>
+      <p>In design, we reason differently from classical deduction. Kees Dorst describes the core equation as <strong>WHAT + HOW = VALUE</strong>, where WHAT is the thing being designed, HOW is the working principle or frame, and VALUE is the desired outcome. In <em>deduction</em> we know WHAT and HOW and derive VALUE. In <em>normal abduction</em> we know HOW and VALUE and must design the WHAT. In <em>design abduction</em> &mdash; the most challenging mode &mdash; only VALUE is known, and we must create both WHAT and HOW from scratch.</p>
+    </div>
+
+    <!-- Reasoning Mode Tabs -->
+    <div class="mode-tabs" id="mode-tabs">
+      <button class="mode-tab active" data-mode="deduction">
+        Deduction
+        <span class="mode-description">WHAT + HOW known &rarr; derive VALUE</span>
+      </button>
+      <button class="mode-tab" data-mode="normal">
+        Normal Abduction
+        <span class="mode-description">HOW + VALUE known &rarr; design WHAT</span>
+      </button>
+      <button class="mode-tab" data-mode="design">
+        Design Abduction
+        <span class="mode-description">Only VALUE known &rarr; create WHAT + HOW</span>
+      </button>
+    </div>
+
+    <!-- Examples Row -->
+    <div class="controls-panel" style="margin-bottom: 24px;">
+      <div class="examples-row">
+        <label>Examples:</label>
+        <button class="example-chip" data-index="0">Morning energy</button>
+        <button class="example-chip" data-index="1">Wayfinding</button>
+        <button class="example-chip" data-index="2">Community building</button>
+        <button class="example-chip" data-index="3">Try Your Own</button>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-explored">0</div>
+        <div class="stat-label">Examples Explored</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-mode">Deduction</div>
+        <div class="stat-label">Current Mode</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-combos">0</div>
+        <div class="stat-label">Combinations Created</div>
+      </div>
+    </div>
+
+    <!-- Equation Visualization -->
+    <div class="viz-panel" id="equation-panel" style="margin-bottom: 24px; overflow: visible;">
+      <div class="equation-layout" id="equation-layout">
+        <div class="equation-box known" id="box-what">
+          <div class="eq-label">WHAT</div>
+          <textarea class="eq-input" id="input-what" placeholder="The designed thing..." rows="2"></textarea>
+          <div class="eq-question">?</div>
+        </div>
+        <div class="equation-operator">+</div>
+        <div class="equation-box known" id="box-how">
+          <div class="eq-label">HOW</div>
+          <textarea class="eq-input" id="input-how" placeholder="Working principle / frame..." rows="2"></textarea>
+          <div class="eq-question">?</div>
+        </div>
+        <div class="equation-operator">=</div>
+        <div class="equation-box known" id="box-value">
+          <div class="eq-label">VALUE</div>
+          <textarea class="eq-input" id="input-value" placeholder="Desired outcome..." rows="2"></textarea>
+          <div class="eq-question">?</div>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="sim-btn sim-btn-primary alternative-btn" id="btn-alternative">Generate Alternative</button>
+        <button class="sim-btn sim-btn-secondary" id="btn-reset" style="margin-top: 12px;">Reset All</button>
+      </div>
+    </div>
+
+    <!-- Log Panel -->
+    <h4 style="margin: 0 0 8px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Activity Log</h4>
+    <div class="log-panel" id="log-panel">
+      <div class="log-entry"><span class="timestamp">[--:--:--]</span> Simulator ready. Select a reasoning mode and example to begin.</div>
+    </div>
+
+  </div>
+
+  <script src="../js/simulators/abductive-reasoning.js"></script>
+</body>
+</html>

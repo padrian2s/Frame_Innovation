@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="nine-step-model">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nine-Step Model Walkthrough — Frame Innovation</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/simulators.css">
+  <style>
+    .progress-bar-container {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+
+    .progress-steps {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      min-width: 700px;
+    }
+
+    .progress-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .progress-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .progress-node.active .progress-circle {
+      background: var(--sim-primary);
+      color: #fff;
+      box-shadow: 0 0 0 4px var(--sim-primary-light);
+    }
+
+    .progress-node.completed .progress-circle {
+      background: #10b981;
+      color: #fff;
+    }
+
+    .progress-step-label {
+      margin-top: 6px;
+      font-size: 0.6rem;
+      color: #9ca3af;
+      text-align: center;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      max-width: 80px;
+      line-height: 1.3;
+    }
+
+    .progress-node.active .progress-step-label {
+      color: var(--sim-primary-dark);
+      font-weight: 700;
+    }
+
+    .progress-node.completed .progress-step-label {
+      color: #059669;
+    }
+
+    .progress-connector {
+      flex: 1;
+      height: 3px;
+      background: #e5e7eb;
+      margin-top: 15px;
+      position: relative;
+      min-width: 12px;
+      transition: background 0.3s ease;
+    }
+
+    .progress-connector.filled {
+      background: #10b981;
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      margin-bottom: 16px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .step-card.current {
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15), 0 0 0 2px var(--sim-primary-light);
+    }
+
+    .step-card-header {
+      padding: 16px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s ease;
+      user-select: none;
+    }
+
+    .step-card-header:hover {
+      background: #f9fafb;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e5e7eb;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .step-card.current .step-number {
+      background: var(--sim-primary);
+      color: #fff;
+    }
+
+    .step-card.done .step-number {
+      background: #10b981;
+      color: #fff;
+    }
+
+    .step-card-title {
+      flex: 1;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .step-card-chevron {
+      color: #9ca3af;
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .step-card.expanded .step-card-chevron {
+      transform: rotate(180deg);
+    }
+
+    .step-card-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 20px;
+    }
+
+    .step-card.expanded .step-card-body {
+      max-height: 800px;
+      padding: 0 20px 20px;
+    }
+
+    .step-section {
+      margin-bottom: 16px;
+    }
+
+    .step-section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--sim-primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .step-section p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .step-questions {
+      list-style: none;
+      padding: 0;
+    }
+
+    .step-questions li {
+      padding: 6px 0 6px 20px;
+      font-size: 0.85rem;
+      color: #4b5563;
+      position: relative;
+    }
+
+    .step-questions li::before {
+      content: '?';
+      position: absolute;
+      left: 0;
+      color: var(--sim-primary);
+      font-weight: 700;
+    }
+
+    .step-notes-area {
+      margin-top: 12px;
+    }
+
+    .step-proceed-btn {
+      margin-top: 12px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 8px;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .nav-buttons .spacer {
+      flex: 1;
+    }
+
+    .summary-panel {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 2px solid var(--sim-primary-light);
+      display: none;
+    }
+
+    .summary-panel.visible {
+      display: block;
+      animation: slideIn 0.4s ease;
+    }
+
+    .summary-panel h3 {
+      margin: 0 0 16px;
+      font-size: 1.25rem;
+      color: var(--sim-primary-dark);
+    }
+
+    .summary-journey {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .summary-step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .summary-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--sim-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .summary-step-content {
+      flex: 1;
+    }
+
+    .summary-step-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1f2937;
+    }
+
+    .summary-step-text {
+      font-size: 0.82rem;
+      color: #4b5563;
+      line-height: 1.5;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .progress-bar-container {
+        padding: 12px;
+      }
+
+      .progress-steps {
+        min-width: 560px;
+      }
+
+      .progress-circle {
+        width: 26px;
+        height: 26px;
+        font-size: 0.65rem;
+      }
+
+      .progress-step-label {
+        font-size: 0.55rem;
+        max-width: 60px;
+      }
+
+      .step-card-header {
+        padding: 12px 16px;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body class="simulator-page">
+
+  <header class="simulator-header">
+    <a href="../index.html" class="back-link">&larr; Back to Study Guide</a>
+    <h1 class="sim-title">Nine-Step Model Walkthrough</h1>
+    <p class="sim-subtitle">A complete guided walkthrough of Dorst's frame creation process with real case studies</p>
+  </header>
+
+  <div class="simulator-container">
+
+    <div class="simulator-description">
+      <h3>About This Simulator</h3>
+      <p>Kees Dorst's nine-step model provides a structured path from problem archaeology through frame creation to practical integration. Each step builds on the last, gradually shifting your understanding from the surface-level problem to the deep frames that can transform it. Walk through each step with a real case study, recording your insights along the way.</p>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel" style="margin-bottom: 24px;">
+      <div class="control-group">
+        <label class="control-label" for="case-select">Select Case Study</label>
+        <select class="control-select" id="case-select">
+          <option value="">-- Choose a case study --</option>
+          <option value="kings-cross">Kings Cross Entertainment District</option>
+          <option value="high-speed-train">The High-Speed Train</option>
+          <option value="library">Library Transformation</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar" style="display: none;">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-steps">0 / 9</div>
+        <div class="stat-label">Steps Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-current">--</div>
+        <div class="stat-label">Current Step</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-case">--</div>
+        <div class="stat-label">Case Study</div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container" id="progress-bar" style="display: none;">
+      <div class="progress-steps" id="progress-steps"></div>
+    </div>
+
+    <!-- Step Cards -->
+    <div id="step-cards-container"></div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons" id="nav-buttons" style="display: none;">
+      <button class="sim-btn sim-btn-secondary" id="btn-prev" disabled>&larr; Previous Step</button>
+      <div class="spacer"></div>
+      <button class="sim-btn sim-btn-primary" id="btn-next">Next Step &rarr;</button>
+    </div>
+
+    <!-- Summary Panel -->
+    <div class="summary-panel" id="summary-panel">
+      <h3>Journey Complete: From Problem to Frame</h3>
+      <div class="summary-journey" id="summary-journey"></div>
+    </div>
+
+    <!-- Log Panel -->
+    <h4 style="margin: 0 0 8px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Activity Log</h4>
+    <div class="log-panel" id="log-panel">
+      <div class="log-entry"><span class="timestamp">[--:--:--]</span> Simulator ready. Select a case study to begin the nine-step walkthrough.</div>
+    </div>
+
+  </div>
+
+  <script src="../js/simulators/nine-step-model.js"></script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="theme-exploration">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Exploration — Frame Innovation</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/simulators.css">
+  <style>
+    .stakeholder-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .stakeholder-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #fff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .stakeholder-tag:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .stakeholder-tag .concern-count {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      padding: 1px 7px;
+      font-size: 0.7rem;
+    }
+
+    .theme-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .theme-input-row .control-input {
+      flex: 1;
+    }
+
+    .venn-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+    }
+
+    .venn-circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 20px;
+    }
+
+    .venn-circle.bridged {
+      opacity: 0.45;
+      transform: scale(1.03);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .venn-label {
+      position: absolute;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-align: center;
+      color: #1f2937;
+      pointer-events: none;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+      max-width: 120px;
+      line-height: 1.3;
+    }
+
+    .venn-concerns {
+      position: absolute;
+      font-size: 0.65rem;
+      color: #374151;
+      text-align: center;
+      pointer-events: none;
+      max-width: 110px;
+      line-height: 1.4;
+      opacity: 0.7;
+    }
+
+    .venn-theme-badge {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--sim-primary);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 16px rgba(244, 63, 94, 0.35);
+      z-index: 10;
+      white-space: nowrap;
+      animation: themeAppear 0.4s ease;
+      display: none;
+    }
+
+    .venn-theme-badge.visible {
+      display: block;
+    }
+
+    @keyframes themeAppear {
+      from { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+      to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    }
+
+    .bridge-line {
+      position: absolute;
+      height: 3px;
+      background: var(--sim-primary);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 5;
+      border-radius: 2px;
+      transform-origin: 0 50%;
+    }
+
+    .bridge-line.active {
+      opacity: 0.6;
+    }
+
+    .results-panel {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      margin-top: 24px;
+    }
+
+    .results-panel h4 {
+      margin: 0 0 12px;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6b7280;
+    }
+
+    .score-bar {
+      width: 100%;
+      height: 24px;
+      background: #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .score-fill {
+      height: 100%;
+      background: var(--sim-gradient);
+      border-radius: 12px;
+      transition: width 0.6s ease;
+      min-width: 0;
+    }
+
+    .score-text {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--sim-primary);
+      margin-bottom: 4px;
+    }
+
+    .bridged-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .bridged-list li {
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .bridged-list li.not-bridged {
+      opacity: 0.3;
+    }
+
+    .suggested-themes {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .suggested-themes h5 {
+      margin: 0 0 8px;
+      font-size: 0.8rem;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .suggestion-chip {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 16px;
+      border: 1px dashed #d1d5db;
+      background: #f9fafb;
+      font-size: 0.82rem;
+      color: #374151;
+      cursor: pointer;
+      margin: 0 6px 6px 0;
+      transition: all 0.2s ease;
+    }
+
+    .suggestion-chip:hover {
+      border-color: var(--sim-primary);
+      background: var(--sim-primary-light);
+      color: var(--sim-primary-dark);
+    }
+
+    @media (max-width: 768px) {
+      .venn-container {
+        height: 360px;
+      }
+
+      .theme-input-row {
+        flex-direction: column;
+      }
+
+      .venn-label {
+        font-size: 0.65rem;
+        max-width: 80px;
+      }
+
+      .venn-concerns {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="simulator-page">
+
+  <header class="simulator-header">
+    <a href="../index.html" class="back-link">&larr; Back to Study Guide</a>
+    <h1 class="sim-title">Theme Exploration</h1>
+    <p class="sim-subtitle">Discover deep patterns that bridge stakeholder concerns and unlock new frames</p>
+  </header>
+
+  <div class="simulator-container">
+
+    <div class="simulator-description">
+      <h3>About This Simulator</h3>
+      <p>Themes are deep patterns of meaning that cut across the concerns of multiple stakeholders. Unlike superficial compromises, a powerful theme bridges fundamentally different perspectives by revealing a shared human need or value. In Dorst's frame innovation process, discovering the right theme is the pivotal step that makes new frames possible. Propose themes and see which stakeholder groups they connect.</p>
+    </div>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel" style="margin-bottom: 24px;">
+      <div class="control-group">
+        <label class="control-label" for="scenario-select">Load Scenario</label>
+        <select class="control-select" id="scenario-select">
+          <option value="">-- Select a scenario --</option>
+          <option value="kings-cross">Kings Cross Entertainment District</option>
+          <option value="social-housing">Social Housing Renewal</option>
+          <option value="library">Library Transformation</option>
+        </select>
+      </div>
+      <div id="stakeholder-tags-area" style="display: none;">
+        <label class="control-label" style="margin-top: 12px;">Stakeholder Concerns</label>
+        <div class="stakeholder-tags" id="stakeholder-tags"></div>
+      </div>
+    </div>
+
+    <!-- Theme Testing -->
+    <div class="controls-panel" id="theme-panel" style="margin-bottom: 24px; display: none;">
+      <div class="control-group">
+        <label class="control-label" for="theme-input">Propose a Theme</label>
+        <div class="theme-input-row">
+          <input type="text" class="control-input" id="theme-input" placeholder="Enter a theme (e.g., hosting, belonging, learning ecosystem...)">
+          <button class="sim-btn sim-btn-primary" id="btn-test-theme">Test Theme</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar" style="display: none;">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-tested">0</div>
+        <div class="stat-label">Themes Tested</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-best">0%</div>
+        <div class="stat-label">Best Theme Score</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-bridged">0</div>
+        <div class="stat-label">Stakeholders Bridged</div>
+      </div>
+    </div>
+
+    <!-- Venn Diagram Visualization -->
+    <div class="viz-panel" id="venn-panel" style="margin-bottom: 0; display: none;">
+      <div class="venn-container" id="venn-container">
+        <div class="venn-theme-badge" id="venn-theme-badge"></div>
+      </div>
+    </div>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="results-panel" style="display: none;">
+      <h4>Theme Analysis</h4>
+      <div class="score-text" id="score-text">0%</div>
+      <div class="score-bar">
+        <div class="score-fill" id="score-fill" style="width: 0%;"></div>
+      </div>
+      <p style="margin: 0 0 12px; font-size: 0.85rem; color: #6b7280;" id="score-description"></p>
+      <ul class="bridged-list" id="bridged-list"></ul>
+      <div class="suggested-themes" id="suggested-themes">
+        <h5>Try These Themes</h5>
+        <div id="suggestions-container"></div>
+      </div>
+    </div>
+
+    <!-- Log Panel -->
+    <h4 style="margin: 24px 0 8px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Activity Log</h4>
+    <div class="log-panel" id="log-panel">
+      <div class="log-entry"><span class="timestamp">[--:--:--]</span> Simulator ready. Select a scenario to begin exploring themes.</div>
+    </div>
+
+  </div>
+
+  <script src="../js/simulators/theme-exploration.js"></script>
+</body>
+</html>

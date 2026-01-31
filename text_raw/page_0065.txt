@@ -1,0 +1,42 @@
+48
+
+CHAPTER 3
+
+and tend to claim authority by presenting their work as purely deductive (Kuhn
+1962; Latour 1987). But it really isn’t, and it fundamentally can’t be.
+Deduction and induction are the two forms of reasoning that we have at our
+disposal to predict and explain real-world phenomena, and they have driven
+our understanding of the world immensely. But deduction and induction are
+not enough if we want to make something. If we want to create valuable new
+“things,” as in design and the other productive professions, the basic pattern
+of reasoning is called “abduction.” In abduction, we set out to create a new
+“what”—a new “element” for the problem situation—so that the interactions in
+the system lead to a desired outcome. Abduction comes in two forms. In both
+forms, we already know at the beginning of the process something about the
+outcome of the equation; that is, we have an idea about the value we aim to
+achieve with the creation of the outcome.
+Normal abduction—solid problem-solving, based on experience
+
+???
+
++
+
+HOW
+
+leads to
+
+OUTCOME
+
+In normal abduction, we know the result, the value we want to achieve through
+the desired outcome, and also the “how,” a pattern of relationships that will
+help achieve the value we seek. The missing element is a “what” (an object, a
+service, a system), which still needs to be created. For example, faced with an
+undesirable situation of late-night violence in Kings Cross, we can choose to
+work within the established pattern of relationships for crime reduction, and
+send more police into the area in the early hours of the morning. Or we could—
+still within the same pattern—set up a training program for security personnel
+in which they learn to spot possible offenders more quickly. This is often what
+we do, create a solution within a fixed pattern of relationships. In this type of
+abduction, the degree of innovation will be limited because the problem-solving process doesn’t question the “how,” and therefore excludes the creation of
+
+

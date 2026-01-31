@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="stakeholder-mapping">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Stakeholder Mapping — Frame Innovation</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/simulators.css">
+  <style>
+    .add-stakeholder-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .add-stakeholder-row .control-group {
+      margin-bottom: 0;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .stakeholder-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stakeholder-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      border-left: 4px solid var(--card-color, #d1d5db);
+      animation: slideIn 0.3s ease;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .stakeholder-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .stakeholder-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .stakeholder-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #111827;
+    }
+
+    .stakeholder-type-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 10px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .type-Government { background: #dbeafe; color: #1e40af; }
+    .type-Business { background: #fef3c7; color: #92400e; }
+    .type-Community { background: #d1fae5; color: #065f46; }
+    .type-Individual { background: #ede9fe; color: #5b21b6; }
+    .type-NGO { background: #ffe4e6; color: #9f1239; }
+
+    .stakeholder-card label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      margin-top: 10px;
+    }
+
+    .stakeholder-card textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.82rem;
+      font-family: inherit;
+      color: #1f2937;
+      resize: vertical;
+      min-height: 50px;
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .stakeholder-card textarea:focus {
+      outline: none;
+      border-color: var(--sim-primary);
+      box-shadow: 0 0 0 2px var(--sim-primary-light);
+    }
+
+    .btn-remove-stakeholder {
+      background: none;
+      border: none;
+      color: #9ca3af;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+      line-height: 1;
+    }
+
+    .btn-remove-stakeholder:hover {
+      color: #ef4444;
+      background: #fef2f2;
+    }
+
+    .network-panel {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      background: #f9fafb;
+      border: 1px dashed #d1d5db;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .network-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .network-node {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      cursor: grab;
+      transition: box-shadow 0.2s ease;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .network-node:hover {
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25);
+      z-index: 10;
+    }
+
+    .network-node:active {
+      cursor: grabbing;
+    }
+
+    .network-node-label {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #374151;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2px 6px;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    .bridging-themes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .bridging-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      background: var(--sim-primary-light);
+      color: var(--sim-primary-dark);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .bridging-tag .tag-count {
+      background: var(--sim-primary);
+      color: #fff;
+      font-size: 0.65rem;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      margin-left: 6px;
+    }
+
+    .conflict-tag {
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    .conflict-tag .tag-count {
+      background: #ef4444;
+    }
+
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #9ca3af;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 32px;
+    }
+
+    .empty-state-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      .add-stakeholder-row {
+        flex-direction: column;
+      }
+
+      .add-stakeholder-row .control-group {
+        min-width: 100%;
+      }
+
+      .network-panel {
+        height: 350px;
+      }
+
+      .stakeholder-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="simulator-page">
+
+  <header class="simulator-header">
+    <a href="../index.html" class="back-link">&larr; Back to Study Guide</a>
+    <h1 class="sim-title">Multi-Stakeholder Mapping</h1>
+    <p class="sim-subtitle">Map stakeholder networks, uncover shared concerns, and find bridging themes</p>
+  </header>
+
+  <div class="simulator-container">
+
+    <div class="simulator-description">
+      <h3>About This Simulator</h3>
+      <p>Open, complex problems involve many stakeholders with different &mdash; sometimes conflicting &mdash; concerns and values. Dorst emphasizes that understanding this stakeholder landscape is essential before framing can begin. Map out the actors, identify where their concerns overlap, and discover bridging themes that could unite seemingly opposed interests under a new frame.</p>
+    </div>
+
+    <!-- Add Stakeholder Controls -->
+    <div class="controls-panel" style="margin-bottom: 24px;">
+      <div class="add-stakeholder-row">
+        <div class="control-group">
+          <label class="control-label" for="stakeholder-name">Stakeholder Name</label>
+          <input class="control-input" type="text" id="stakeholder-name" placeholder="e.g., Local Residents">
+        </div>
+        <div class="control-group" style="min-width: 160px; flex: 0.6;">
+          <label class="control-label" for="stakeholder-type">Type</label>
+          <select class="control-select" id="stakeholder-type">
+            <option value="Government">Government</option>
+            <option value="Business">Business</option>
+            <option value="Community">Community</option>
+            <option value="Individual">Individual</option>
+            <option value="NGO">NGO</option>
+          </select>
+        </div>
+        <div class="control-group" style="flex: 0 0 auto; display: flex; align-items: flex-end;">
+          <button class="sim-btn sim-btn-primary" id="btn-add">Add Stakeholder</button>
+        </div>
+      </div>
+      <div class="sim-btn-group" style="margin-top: 12px;">
+        <button class="sim-btn sim-btn-secondary" id="btn-load-example">Load Kings Cross Example</button>
+        <button class="sim-btn sim-btn-secondary" id="btn-find-bridges">Find Bridging Themes</button>
+        <button class="sim-btn sim-btn-secondary" id="btn-reset">Reset All</button>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar" id="stats-bar">
+      <div class="stat-item">
+        <div class="stat-value" id="stat-stakeholders">0</div>
+        <div class="stat-label">Stakeholders</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-connections">0</div>
+        <div class="stat-label">Connections</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-shared">0</div>
+        <div class="stat-label">Shared Concerns</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="stat-conflicts">0</div>
+        <div class="stat-label">Potential Conflicts</div>
+      </div>
+    </div>
+
+    <!-- Stakeholder Cards -->
+    <div class="stakeholder-cards" id="stakeholder-cards"></div>
+
+    <!-- Network Visualization -->
+    <div class="viz-panel" style="margin-bottom: 24px; padding: 16px;">
+      <h4 style="margin: 0 0 12px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Stakeholder Network</h4>
+      <div class="network-panel" id="network-panel">
+        <svg class="network-svg" id="network-svg"></svg>
+        <div id="network-nodes"></div>
+        <div class="empty-state" id="empty-state">
+          <div class="empty-state-icon">&#9673;</div>
+          <div>Add stakeholders or load the Kings Cross example<br>to see the network visualization</div>
+        </div>
+      </div>
+      <div class="bridging-themes" id="bridging-themes"></div>
+    </div>
+
+    <!-- Log Panel -->
+    <h4 style="margin: 0 0 8px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Activity Log</h4>
+    <div class="log-panel" id="log-panel">
+      <div class="log-entry"><span class="timestamp">[--:--:--]</span> Simulator ready. Add stakeholders or load the Kings Cross example.</div>
+    </div>
+
+  </div>
+
+  <script src="../js/simulators/stakeholder-mapping.js"></script>
+</body>
+</html>

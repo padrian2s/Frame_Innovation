@@ -1,0 +1,44 @@
+LESSONS FROM DESIGN
+
+45
+
+To penetrate to the core of design thinking, we look at the way fundamentally
+different kinds of reasoning are described in formal logic, in particular, the way
+Roozenburg and Eekels (1995) have taken the classic work of the pragmatist
+philosopher Peirce into design research. At the very simplest level, we can consider the world to exist of “elements,” such as people and things, and connections between these elements, captured in a “pattern of relationships” that we
+can observe through the interactions of these elements, and the “outcome” of a
+process in which the elements have interacted. This is very abstract—but as an
+example, we can look at the original problem situation of a complex case study
+like Kings Cross and see all the elements in the situation (the police, the various
+groups of youngsters, the clubs, the physical characteristics of the public space)
+interact with each other in certain patterns that define stable relationships—
+patterns of interaction which in this case are leading to an unwanted outcome,
+the problems of drunkenness and violence. This three-way distinction between
+“elements,” “patterns of relationships,” and “outcomes” gives us enough conceptual tools to analyze the four basic reasoning patterns that humans use
+in problem-solving, and to show that design reasoning is really very different
+from the other three. We will analyze these ways of reasoning by simply comparing different “settings” of the knowns and unknowns in the basic equation,
+
+WHAT
+
++
+
+(elements)
+
+(pattern of relationships)
+
+HOW
+
+leads to
+
+OUTCOME
+
+(observed phenomenon)
+
+The four basic ways of reasoning that we will compare are deduction, induction,
+(normal) abduction, and design abduction.
+Deduction—solid reasoning from cause to effect
+At the start of a process of deduction, we know the “elements” in the situation, and we know “how” they will interact together. This knowledge allows us
+to reason toward an outcome. For instance, if we know that there are planets
+in the sky, and we are aware of the natural laws that govern their movement
+
+

@@ -1,0 +1,38 @@
+LESSONS FROM DESIGN
+
+63
+
+approach, and we will show how this design practice enables designers and others to deal with very open, complex, dynamic, and networked problem situations.
+3
+
+CREATING FRAMES
+
+The slippery notion of a “frame” is central to the designer’s ability to shift problem situations, and will naturally be taking center stage in this book. In this
+section we will investigate the nature of frames, and explore the ways in which
+designers deal with frames and the process of framing.
+The first question should be, “What’s in a frame?” Let’s start with the
+example of Richard MacCormac’s acclaimed chapel at Fitzwilliam College in
+Cambridge (Lawson and Dorst 2009). The original brief was to design a modern
+chapel to be built in one of the courtyards of Cambridge University. The flow
+of ideas led the team of very experienced architects in the direction of creating a round worship space that would look as if it were suspended in a square
+enclosure. This caused an acute set of problems for the design—how does one
+connect these very different forms? What is the nature of the relationship
+between these forms, and how can that be expressed through the detailing of
+the connection? After many fruitless hours of trying possible positions, formal
+solutions, and construction principles, one of the designers realized what they
+actually were creating could be seen as a “vessel” (a boat!). This key framing
+statement created a number of implications that the architects and construction engineers could fruitfully pursue. The relationship between a boat and its
+surroundings (the quayside) is, of course, one of a “mooring”—and it is easy
+to imagine which shapes would help articulate that “mooring” relationship
+between the suspended chapel and its enclosing building. The idea of a boat
+contains a very rich language of shapes (e.g., railings) and construction principles (e.g., beautifully curved wooden hull) that have been exploited in the
+final design. As this example shows, a frame is an organizational principle or
+a coherent set of statements that are useful to think with. Although frames
+can sometimes be paraphrased by a simple and elegant statement (as in the
+example above, using the metaphor of the boat), they are actually quite complex and subtle thought tools. Proposing a frame includes the use of certain
+concepts, which are assigned significance and meaning. These concepts are
+not neutral at all: they will steer explorations and the perceptions in the process of creation (Lakoff and Johnson 1980). Creating a frame is the result of a
+broader intentional action, which the frame then rearticulates with a new and
+interesting focus (Tzonis 1992). Frames should therefore be actionable—that
+
+

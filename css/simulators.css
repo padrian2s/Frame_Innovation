@@ -1,0 +1,959 @@
+/* ============================================================
+   simulators.css
+   Shared stylesheet for Frame Innovation interactive simulators
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Theme Variables
+   ---------------------------------------------------------- */
+
+[data-theme="frame-creation"] {
+    --sim-primary: #0d9488;
+    --sim-primary-light: #ccfbf1;
+    --sim-primary-dark: #0f766e;
+    --sim-gradient: linear-gradient(135deg, #134e4a, #0d9488);
+}
+
+[data-theme="problem-reframing"] {
+    --sim-primary: #f59e0b;
+    --sim-primary-light: #fef3c7;
+    --sim-primary-dark: #d97706;
+    --sim-gradient: linear-gradient(135deg, #78350f, #f59e0b);
+}
+
+[data-theme="abductive-reasoning"] {
+    --sim-primary: #8b5cf6;
+    --sim-primary-light: #ede9fe;
+    --sim-primary-dark: #7c3aed;
+    --sim-gradient: linear-gradient(135deg, #4c1d95, #8b5cf6);
+}
+
+[data-theme="stakeholder-mapping"] {
+    --sim-primary: #10b981;
+    --sim-primary-light: #d1fae5;
+    --sim-primary-dark: #059669;
+    --sim-gradient: linear-gradient(135deg, #064e3b, #10b981);
+}
+
+[data-theme="theme-exploration"] {
+    --sim-primary: #f43f5e;
+    --sim-primary-light: #ffe4e6;
+    --sim-primary-dark: #e11d48;
+    --sim-gradient: linear-gradient(135deg, #881337, #f43f5e);
+}
+
+[data-theme="nine-step-model"] {
+    --sim-primary: #6366f1;
+    --sim-primary-light: #e0e7ff;
+    --sim-primary-dark: #4f46e5;
+    --sim-gradient: linear-gradient(135deg, #312e81, #6366f1);
+}
+
+/* ----------------------------------------------------------
+   Page Layout
+   ---------------------------------------------------------- */
+
+.simulator-page {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   Header
+   ---------------------------------------------------------- */
+
+.simulator-header {
+    background: var(--sim-gradient);
+    color: #fff;
+    padding: 24px;
+}
+
+.simulator-header .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-bottom: 8px;
+    transition: color 0.2s ease;
+}
+
+.simulator-header .back-link:hover {
+    color: #fff;
+}
+
+.simulator-header .sim-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.simulator-header .sim-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin: 4px 0 0;
+}
+
+/* ----------------------------------------------------------
+   Container
+   ---------------------------------------------------------- */
+
+.simulator-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* ----------------------------------------------------------
+   Description Card
+   ---------------------------------------------------------- */
+
+.simulator-description {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.simulator-description h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: #111827;
+}
+
+.simulator-description p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 0.95rem;
+}
+
+/* ----------------------------------------------------------
+   Controls Panel
+   ---------------------------------------------------------- */
+
+.controls-panel {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+}
+
+.control-group {
+    margin-bottom: 16px;
+}
+
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.control-input,
+.control-select,
+.control-textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: #1f2937;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.control-input:focus,
+.control-select:focus,
+.control-textarea:focus {
+    outline: none;
+    border-color: var(--sim-primary);
+    box-shadow: 0 0 0 3px var(--sim-primary-light);
+}
+
+.control-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.control-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+/* ----------------------------------------------------------
+   Buttons
+   ---------------------------------------------------------- */
+
+.sim-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.sim-btn:hover {
+    transform: translateY(-1px);
+}
+
+.sim-btn:active {
+    transform: translateY(0);
+}
+
+.sim-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.sim-btn-primary {
+    background-color: var(--sim-primary);
+}
+
+.sim-btn-primary:hover:not(:disabled) {
+    background-color: var(--sim-primary-dark);
+}
+
+.sim-btn-secondary {
+    background-color: #4b5563;
+}
+
+.sim-btn-secondary:hover:not(:disabled) {
+    background-color: #374151;
+}
+
+.sim-btn-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ----------------------------------------------------------
+   Visualization Panel
+   ---------------------------------------------------------- */
+
+.viz-panel {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    min-height: 400px;
+    padding: 20px;
+    position: relative;
+}
+
+.viz-canvas {
+    width: 100%;
+    border: 1px dashed #d1d5db;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------
+   Step Tracker
+   ---------------------------------------------------------- */
+
+.step-tracker {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    margin-bottom: 24px;
+}
+
+.step-item {
+    flex-shrink: 0;
+    padding: 12px 20px;
+    border-bottom: 3px solid transparent;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.step-item:hover {
+    color: #1f2937;
+    background: #f9fafb;
+}
+
+.step-item.active {
+    border-bottom-color: var(--sim-primary);
+    color: var(--sim-primary-dark);
+    font-weight: 700;
+}
+
+.step-item.completed {
+    border-bottom-color: #10b981;
+    color: #059669;
+    opacity: 0.8;
+}
+
+/* ----------------------------------------------------------
+   Log Panel
+   ---------------------------------------------------------- */
+
+.log-panel {
+    background: #1f2937;
+    color: #f9fafb;
+    border-radius: 8px;
+    padding: 16px;
+    font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+        Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    max-height: 300px;
+    overflow-y: auto;
+    line-height: 1.5;
+}
+
+.log-entry {
+    padding: 4px 0;
+    border-bottom: 1px solid #374151;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.log-entry .timestamp {
+    color: #9ca3af;
+    margin-right: 8px;
+}
+
+/* ----------------------------------------------------------
+   Stats Bar
+   ---------------------------------------------------------- */
+
+.stats-bar {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.stat-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sim-primary);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #6b7280;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+}
+
+/* ----------------------------------------------------------
+   Animations
+   ---------------------------------------------------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--sim-primary-light);
+    }
+    50% {
+        box-shadow: 0 0 0 8px transparent;
+    }
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
+
+.slide-up {
+    animation: slideIn 0.3s ease;
+}
+
+.pulse-highlight {
+    animation: pulse 0.6s ease;
+}
+
+/* ----------------------------------------------------------
+   Pipeline Visualization (Frame Creation)
+   ---------------------------------------------------------- */
+
+.pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    overflow-x: auto;
+    padding: 8px 0;
+}
+
+.pipeline-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.pipeline-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2.5px solid #d1d5db;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #9ca3af;
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.pipeline-node.is-active .pipeline-circle {
+    border-color: var(--sim-primary);
+    color: var(--sim-primary);
+    box-shadow: 0 0 0 4px var(--sim-primary-light);
+}
+
+.pipeline-node.is-completed .pipeline-circle,
+.pipeline-circle.filled {
+    background-color: var(--sim-primary);
+    border-color: var(--sim-primary);
+    color: #fff;
+}
+
+.pipeline-label {
+    font-size: 0.65rem;
+    color: #9ca3af;
+    text-align: center;
+    max-width: 64px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.pipeline-node.is-active .pipeline-label {
+    color: var(--sim-primary-dark);
+    font-weight: 600;
+}
+
+.pipeline-node.is-completed .pipeline-label {
+    color: #059669;
+}
+
+.pipeline-connector {
+    width: 24px;
+    height: 2.5px;
+    background: #d1d5db;
+    flex-shrink: 0;
+    margin: 0 2px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    transition: background-color 0.4s ease;
+}
+
+.pipeline-connector.is-filled {
+    background: var(--sim-primary);
+}
+
+/* ----------------------------------------------------------
+   Step Card (Frame Creation)
+   ---------------------------------------------------------- */
+
+.step-card-inner {
+    padding: 4px 0;
+}
+
+.step-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.step-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--sim-primary-light);
+    color: var(--sim-primary-dark);
+}
+
+.step-done-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.step-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 8px;
+}
+
+.step-card-desc {
+    color: #4b5563;
+    font-size: 0.925rem;
+    margin: 0 0 20px;
+    line-height: 1.6;
+}
+
+.step-prompts {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid var(--sim-primary);
+}
+
+.step-prompts-heading {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sim-primary-dark);
+    margin: 0 0 10px;
+}
+
+.step-prompts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.step-prompts-list li {
+    padding: 6px 0;
+    padding-left: 18px;
+    position: relative;
+    color: #374151;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.step-prompts-list li::before {
+    content: "\203A";
+    position: absolute;
+    left: 0;
+    color: var(--sim-primary);
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.step-notes-area {
+    margin-bottom: 20px;
+}
+
+.step-notes-input {
+    min-height: 120px;
+}
+
+.step-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ----------------------------------------------------------
+   Scenario & Frame Cards (Problem Reframing)
+   ---------------------------------------------------------- */
+
+.scenario-problem-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--sim-primary);
+}
+
+.scenario-problem-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 8px;
+}
+
+.scenario-problem-text {
+    color: #4b5563;
+    font-size: 0.925rem;
+    margin: 0;
+    line-height: 1.65;
+}
+
+.frame-cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 8px;
+}
+
+.frame-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    animation-fill-mode: both;
+}
+
+.frame-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.frame-card.is-active {
+    border-color: var(--sim-primary);
+    box-shadow: 0 0 0 3px var(--sim-primary-light), 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.frame-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.frame-card-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.frame-card-metaphor {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 9999px;
+    background: var(--sim-primary-light);
+    color: var(--sim-primary-dark);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.frame-card-desc {
+    color: #4b5563;
+    font-size: 0.85rem;
+    margin: 0 0 14px;
+    line-height: 1.55;
+}
+
+.frame-card-solutions h5,
+.frame-card-impact h5 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+    margin: 0 0 6px;
+}
+
+.frame-card-solutions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+}
+
+.frame-card-solutions li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+    font-size: 0.825rem;
+    color: #374151;
+    line-height: 1.45;
+}
+
+.frame-card-solutions li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sim-primary);
+}
+
+.frame-card-impact p {
+    font-size: 0.825rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.frame-card-editable {
+    cursor: default;
+}
+
+.frame-card-editable:hover {
+    transform: none;
+}
+
+.frame-edit-group {
+    margin-bottom: 12px;
+}
+
+.frame-edit-group:last-child {
+    margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------
+   Compare Matrix (Problem Reframing)
+   ---------------------------------------------------------- */
+
+.compare-matrix {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 24px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.compare-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 16px;
+}
+
+.compare-table-wrap {
+    overflow-x: auto;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.compare-table th {
+    background: var(--sim-primary);
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.compare-table th:first-child {
+    border-radius: 6px 0 0 0;
+}
+
+.compare-table th:last-child {
+    border-radius: 0 6px 0 0;
+}
+
+.compare-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.compare-table tr:last-child td {
+    border-bottom: none;
+}
+
+.compare-dim {
+    font-weight: 700;
+    color: #111827;
+    white-space: nowrap;
+    background: #f9fafb;
+    width: 100px;
+}
+
+.compare-table ul {
+    list-style: disc;
+    padding-left: 16px;
+    margin: 0;
+}
+
+.compare-table li {
+    margin-bottom: 2px;
+}
+
+/* ----------------------------------------------------------
+   Responsive (768px breakpoint)
+   ---------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .simulator-header {
+        padding: 16px;
+    }
+
+    .simulator-header .sim-title {
+        font-size: 1.25rem;
+    }
+
+    .simulator-container {
+        padding: 16px;
+    }
+
+    .simulator-description {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .controls-panel {
+        padding: 16px;
+    }
+
+    .viz-panel {
+        min-height: 300px;
+        padding: 16px;
+    }
+
+    .step-tracker {
+        margin-bottom: 16px;
+    }
+
+    .step-item {
+        padding: 10px 14px;
+        font-size: 0.8rem;
+    }
+
+    .stats-bar {
+        gap: 8px;
+    }
+
+    .stat-item {
+        min-width: 80px;
+        padding: 10px 12px;
+    }
+
+    .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .sim-btn-group {
+        flex-direction: column;
+    }
+
+    .sim-btn {
+        width: 100%;
+    }
+
+    .log-panel {
+        max-height: 200px;
+        padding: 12px;
+    }
+
+    .pipeline {
+        justify-content: flex-start;
+        padding: 8px 4px;
+    }
+
+    .pipeline-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.65rem;
+    }
+
+    .pipeline-label {
+        font-size: 0.55rem;
+        max-width: 48px;
+    }
+
+    .pipeline-connector {
+        width: 12px;
+    }
+
+    .frame-cards-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .frame-card {
+        padding: 16px;
+    }
+
+    .compare-table {
+        font-size: 0.78rem;
+    }
+
+    .compare-table th,
+    .compare-table td {
+        padding: 8px 10px;
+    }
+
+    .step-actions {
+        flex-direction: column;
+    }
+
+    .step-actions .sim-btn {
+        width: 100%;
+    }
+}

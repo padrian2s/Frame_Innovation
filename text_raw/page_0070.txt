@@ -1,0 +1,40 @@
+LESSONS FROM DESIGN
+
+53
+
+HOW DO DESIGNERS APPROACH A PARADOX? ON FRAMING
+
+WHAT
+
++
+
+HOW
+
+leads to
+
+OUTCOME
+
+frame
+
+In questioning the established patterns of relationships in a problem situation,
+design abduction creates both a new way of looking at the problem situation
+and a new way of acting within it. This comprehensive new approach to the
+problem situation is called a “frame” within design literature (see Schön 1983,
+and appendix 2). Expressed in terms of the concepts in our logical formula, a
+frame is the proposal through which, by applying a particular pattern of relationships, we can create a desired outcome. If we go back to the earlier example,
+the problem of creating an energy rush at the start of the work day, then the
+choice of a chemical stimulus (caffeine) as a way to feel energized is the frame,
+the approach to the problem. But this problem might be reframed by proposing
+that there are also social ways of being energized (by an inspiring conversation), or by delving deeper and saying that what we really are looking for is not
+so much the energy rush, but a level of concentration—in which case, meditation would be a way to achieve the clarity of mind that is otherwise achieved
+by drinking coffee.
+We call the act of proposing such a hypothetical pattern of relationships
+“framing.” Framing is the key to design abduction. The most logical way to
+approach a paradoxical problem situation is to work backward, as it were:
+starting from the only “known” in the equation, the desired value, and then
+adopting or developing a frame that is new to the problem situation. This framing step is intellectually similar to induction: after all, we have seen that in
+inductive thinking a pattern of relationships is also proposed and tested. Once
+a credible, promising, or at least interesting frame is proposed, the designer
+can shift to normal abduction, designing the element that will allow the equation to be completed. Only complete equations with “elements,” “pattern of
+
+

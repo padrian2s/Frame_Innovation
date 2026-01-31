@@ -1,0 +1,42 @@
+46
+
+CHAPTER 3
+
+within the solar system, we can predict where a planet will be at a certain time.
+The calculations to support this prediction are very complicated, but in the
+end reasoning deductively toward a prediction is not problematic. With our
+knowledge of the elements in the situation and the pattern of their relationships (as defined by the laws of gravity), we know enough to safely deduce the
+outcome. Our forecast can be verified by observations, confirming that we have
+considered all the players in the situation correctly and have a sound grasp of
+the pattern of relationships through which the sun and the planets in the solar
+system interact. Of all the reasoning patterns we humans have at our disposal,
+deduction is the only one that is rock-solid. In terms of our simple equation,
+the starting position for deductive thinking looks like this:
+
+WHAT
+
++
+
+HOW
+
+leads to
+
+???
+
+Induction—discovering patterns
+Matters begin to look slightly precarious in the next reasoning pattern, induction.
+
+WHAT
+
++
+
+???
+
+leads to
+
+OUTCOME
+
+At the start of the reasoning process, we again know the “elements” in the
+situation, and—if we take the planets as an example—we know the outcome of
+
+

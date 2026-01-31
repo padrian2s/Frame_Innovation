@@ -1,0 +1,39 @@
+LESSONS FROM DESIGN
+
+59
+
+design expertise—the expert and the master—in order to learn from them how
+we can more effectively deal with the open, complex, networked, and dynamic
+problem situations we find ourselves in today.
+
+FIVE LESSONS FROM DESIGN
+
+With this focus in mind, we can now move on to describe five key design practices. They are the five lessons from design practice that we must learn from if
+we want to deal with open, complex, dynamic, and networked problem situations. These five practices—(1) coevolution, (2) developing problem situations,
+(3) handling frames, (4) exploring themes, and (5) fostering a discourse—are
+the building blocks for the frame creation model that will be introduced in the
+next chapter.
+1
+
+COEVOLUTION
+
+In expert design practice, research has shown that the design problem is
+not fixed before the search begins for a satisfactory solution concept. Expert
+design is more a matter of developing and refining both the formulation of
+a problem and ideas for a solution in concert, in a process called coevolution
+(Dorst and Cross 2001). Coevolution involves a constant iteration of analysis,
+synthesis, and evaluation passing back and forth between the two conceptual
+design “spaces”—the problem space and the solution space (Maher, Poon, and
+Boulanger 1996). In doing so, the designer is seeking to generate a matching
+problem-solution pair. Roughly speaking, what happens is that a chunk, or seed,
+of coherent information arises from the problem situation, and sparks the crystallization of a core solution idea (the “primary generator”). This core solution
+idea in turn changes the designer’s view of the problem situation. Designers
+then redefine the problem, and check whether the new definition still suits
+the earlier solution idea. Unlike the popular perception, the creative event in
+design is not so much a creative leap from problem to solution: the great Idea,
+the light bulb moment. Rather, a creative event occurs when a bridge is built
+between the problem space and the solution space by the identification of a key
+concept. Empirical research confirms that expert design involves a period of
+exploration in which problem and solution spaces are unstable until (temporarily) fixed by an emergent bridge which identifies, or frames, a problem-solution
+
+

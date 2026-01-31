@@ -1,0 +1,38 @@
+LESSONS FROM DESIGN
+
+51
+
+WHAT MAKES DESIGN HARD? PROBLEMS AND PARADOXES
+Many issues that we encounter in our daily lives and professional practices
+never reach the status of “a problem.” If the issue is quite simple and we have
+an obvious scenario in our repertoire to deal with it, we just get on with it and
+act. A “problem” occurs only when we either do not know how to progress or
+our chosen way of working gets us stuck. Then we have to stop and think, devise
+and critically consider options, perhaps be strategic and create multistep plans,
+do scenario planning, etc. Problems occur when something blocks our normal
+flow of how we deal with the issues in life. This “something,” the counterforce,
+is bound to have its own background and rationale—at the core of really “hard”
+problems is a paradox. The word “paradox” is used here rather loosely, in the
+sense of a complex statement that consists of two or more conflicting statements (Dorst 2006). All the statements that make up the paradox are (possibly)
+true or valid in their own right, but they cannot be combined for logical or
+pragmatic reasons. There are three ways forward. The first option is to choose
+one side of the paradox and let it take precedence over the other. There is also
+the option of compromise, where negotiation might lead to a decision that sits
+near the halfway point between opposing needs and views. The third way forward in these tough paradoxical situations, where there is a real clash of views,
+standpoints, or requirements, is to redefine the problem situation. Designers
+do this very well. In her book Ethics in Engineering Practice and Research, Caroline Whitbeck (1998) remarks, “The initial assumption (within moral philosophy) that a conflict is irresolvable is misguided, because it defeats any attempt
+to do what design engineers often do so well, namely, to satisfy potentially
+conflicting considerations simultaneously” (56).
+This observation is borne out by the case studies in chapter 2—somehow,
+the designers and young artists managed to wriggle out of confounding problem situations that had, in some cases, already existed for a very long time, and
+created a position from which the problem situation could be steered toward a
+solution. This accomplishment is in stark contrast to a conventional problemsolving approach, where the problematic situation cannot be redefined because
+the way the solution must work (the “how,” its “pattern of relationships”) is
+already fixed. This is the serious limitation of the normal abduction used in
+conventional problem-solving. The conventional problem solver only has the
+options of giving one side of the paradox precedence over the other or creating
+a compromise between the two positions.
+The challenge of dealing creatively with paradoxes is one of the aspects
+that makes design so fascinating and captivating. Unresolved paradoxes can
+
+
